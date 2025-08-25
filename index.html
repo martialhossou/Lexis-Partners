@@ -4,9 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Lexis & Partners — Cabinet d’avocats (Lyon)</title>
-  <meta name="description" content="Cabinet d’avocats haut de gamme à Lyon. Expertise : pénal, affaires, travail. Études de cas, équipe, blog lisible. Site FR/EN, design premium, parallaxe visible, mobile first." />
+  <meta name="description" content="Cabinet d’avocats haut de gamme à Lyon. Expertise : pénal, affaires, travail. Articles lisibles, parallaxe soignée, menu mobile opaque avec bouton fermer, images HD. Démo FR/EN." />
   <meta property="og:title" content="Lexis & Partners — Cabinet d’avocats (Lyon)" />
-  <meta property="og:description" content="Expertise : pénal, affaires, travail. Design luxueux, parallaxe soignée, articles lisibles." />
+  <meta property="og:description" content="Expertise : pénal, affaires, travail. Design luxueux, parallaxe, blog lisible, WhatsApp direct (démo)." />
   <meta property="og:type" content="website" />
   <meta name="theme-color" content="#C9A227" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,14 +15,15 @@
   <style>
     :root{
       --gold:#C9A227;
-      --bg:#f7f5f0; /* blanc sale / off-white */
-      --ink:#171717;
+      --bg:#f7f5f0; /* blanc sale */
+      --ink:#161616;
       --ink-2:#3a3a3a;
       --muted:#7a7a7a;
       --card:#ffffff;
       --shadow:0 12px 34px rgba(0,0,0,.08);
       --radius:18px;
       --maxw:1200px;
+      --footer:#0B0B0B;
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
@@ -34,30 +35,38 @@
     .skip-link:focus{position:fixed;left:16px;top:16px;width:auto;height:auto;background:#000;color:#fff;padding:.6rem 1rem;border-radius:10px;z-index:10000}
 
     /* Header */
-    header{position:sticky;top:0;z-index:999;background:rgba(247,245,240,.8);backdrop-filter:saturate(140%) blur(12px);border-bottom:1px solid #e8e3d9}
-    .nav{display:flex;align-items:center;justify-content:space-between;height:70px}
+    header{position:sticky;top:0;z-index:999;background:#f7f5f0;border-bottom:1px solid #e8e3d9}
+    .nav{display:flex;align-items:center;justify-content:space-between;min-height:70px}
     .brand{display:flex;align-items:center;gap:14px}
-    .logo{font-family:"Playfair Display",serif;font-weight:700;font-size:22px;letter-spacing:.3px;color:var(--ink)}
-    .logo .x3d{display:inline-block;transform:translateZ(0);text-shadow:0 1px 0 #a98815, 0 2px 0 #a98815, 0 5px 8px rgba(0,0,0,.25);color:var(--gold)}
+    .logo{font-family:"Playfair Display",serif;font-weight:700;font-size:22px;color:var(--ink)}
+    .logo .x3d{display:inline-block;text-shadow:0 1px 0 #a98815, 0 2px 0 #a98815, 0 5px 8px rgba(0,0,0,.25);color:var(--gold)}
     nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0}
     nav a{font-weight:600;letter-spacing:.2px}
     .actions{display:flex;align-items:center;gap:10px}
     .btn{display:inline-flex;align-items:center;gap:8px;padding:.7rem 1rem;border-radius:12px;border:1px solid #e5dfd4;background:#fff;box-shadow:var(--shadow);font-weight:600}
     .btn.primary{background:var(--ink);color:#fff;border-color:#000}
+    .btn.whatsapp{background:#25D366;color:#0E0E0E;border:0}
     .lang{border:1px solid #e5dfd4;background:#fff;border-radius:12px;padding:.5rem .75rem;font-weight:600}
 
     /* Mobile menu */
-    .hamburger{display:none;flex-direction:column;gap:4px;border:0;background:transparent;padding:6px}
+    .hamburger{display:none;flex-direction:column;gap:4px;border:0;background:#fff;padding:10px;border:1px solid #e5dfd4;border-radius:10px}
     .hamburger span{width:26px;height:3px;background:#1f1f1f;border-radius:6px}
-    .mobile-drawer{position:fixed;inset:0 0 0 auto;max-width:82vw;transform:translateX(100%);transition:transform .35s ease;background:#fff;box-shadow:-20px 0 50px rgba(0,0,0,.15);padding:22px;z-index:1000;display:flex;flex-direction:column;gap:18px}
+    .backdrop{position:fixed;inset:0;background:rgba(0,0,0,.5);opacity:0;visibility:hidden;transition:.25s;z-index:999}
+    .backdrop.show{opacity:1;visibility:visible}
+    .mobile-drawer{position:fixed;top:0;right:0;height:100%;width:min(82vw,380px);transform:translateX(100%);transition:transform .35s ease;background:#fff;box-shadow:-20px 0 50px rgba(0,0,0,.18);z-index:1000;display:flex;flex-direction:column}
     .mobile-drawer.open{transform:translateX(0)}
-    .mobile-drawer a{padding:12px 8px;border-bottom:1px dashed #eee;font-weight:700}
+    .drawer-head{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid #eee}
+    .drawer-head .title{font-weight:800}
+    .drawer-close{border:0;background:#0E0E0E;color:#fff;padding:.5rem .85rem;border-radius:10px;font-weight:700}
+    .drawer-body{padding:12px 6px;display:flex;flex-direction:column}
+    .drawer-body a{padding:14px 16px;border-bottom:1px solid #f0f0f0;font-weight:700}
+    .drawer-actions{margin-top:auto;padding:16px;border-top:1px solid #eee;display:grid;gap:10px}
 
     /* Hero */
     .hero{position:relative;isolation:isolate;overflow:hidden}
     .layer{position:absolute;inset:0;pointer-events:none}
     .l1{background:radial-gradient(900px 500px at 10% -10%, rgba(201,162,39,.18), transparent)}
-    .l2{background:url('https://images.unsplash.com/photo-1523246192220-3f2b96885f62?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;opacity:.12;mix-blend:multiply}
+    .l2{background:url('https://images.unsplash.com/photo-1523246192220-3f2b96885f62?q=80&auto=format&fit=crop&w=1600') center/cover no-repeat;opacity:.12;mix-blend:multiply}
     .l3{background:radial-gradient(1200px 600px at 90% 0%, rgba(0,0,0,.06), transparent)}
     .hero .container{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;min-height:76vh;align-items:center;padding-block:82px}
     h1{font-family:"Playfair Display",serif;font-size:clamp(34px,3.8vw,58px);line-height:1.1;margin:0 0 10px}
@@ -83,20 +92,21 @@
     /* Équipe */
     .team{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
     .member{padding:18px;border:1px solid #e8e3d9;border-radius:var(--radius);background:#fff;box-shadow:var(--shadow)}
-    .avatar{aspect-ratio:1/1;border-radius:14px;background:url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800&auto=format&fit=crop') center/cover;}
+    .avatar{aspect-ratio:1/1;border-radius:14px;overflow:hidden;border:1px solid #e8e3d9;background:#fff}
+    .avatar img{width:100%;height:100%;object-fit:cover;display:block}
     .role{color:var(--muted);font-weight:700;font-size:14px;margin-top:8px}
 
     /* Cas */
     .cases{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
     .case{padding:0;border:1px solid #e8e3d9;border-radius:var(--radius);background:#fff;box-shadow:var(--shadow);overflow:hidden}
-    .case .cover{height:140px;background:url('https://images.unsplash.com/photo-1555375771-14b2a63968a1?q=80&w=1600&auto=format&fit=crop') center/cover}
+    .case .cover{height:160px}
     .case .content{padding:18px}
     .case small{color:var(--muted);font-weight:800;letter-spacing:.3px}
 
     /* Blog */
     .posts{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
     .post{padding:0;border-radius:var(--radius);overflow:hidden;border:1px solid #e8e3d9;background:#fff;box-shadow:var(--shadow)}
-    .post .cover{height:180px;background:linear-gradient(135deg,#f3e8c2,#fff),url('https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=1600&auto=format&fit=crop') center/cover}
+    .post .cover{height:200px}
     .post .content{padding:18px}
 
     /* FAQ */
@@ -108,17 +118,20 @@
     .cta{padding:50px;border-radius:20px;background:linear-gradient(135deg, rgba(201,162,39,.08), #fff);border:1px solid #e8e3d9;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
     .cta .cta-text{font-family:"Playfair Display",serif;font-size:26px}
 
-    /* Footer */
-    footer{padding-block:50px;border-top:1px solid #e8e3d9;background:#fff}
-    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:22px}
-    .small{color:var(--muted);font-size:14px}
+    /* Footer luxe */
+    footer{padding-block:64px;border-top:1px solid #e8e3d9;background:var(--footer);color:#EDEDED}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:28px}
+    .footer-logo{font-family:"Playfair Display",serif;font-weight:700;font-size:22px;color:#EDEDED}
+    .divider{height:1px;background:linear-gradient(90deg,transparent, rgba(201,162,39,.6), transparent);margin:18px 0}
+    .small{color:#B9B9B9;font-size:14px}
+    .credit{margin-top:10px;font-size:14px;color:#D9D9D9}
 
     /* Reveal on scroll */
     .reveal{opacity:0;transform:translateY(12px);transition:opacity .6s ease, transform .6s ease}
     .reveal.in{opacity:1;transform:translateY(0)}
 
     /* Modal (articles lisibles) */
-    .modal{position:fixed;inset:0;background:rgba(0,0,0,.4);display:none;align-items:center;justify-content:center;padding:20px;z-index:2000}
+    .modal{position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;align-items:center;justify-content:center;padding:20px;z-index:2000}
     .modal.open{display:flex}
     .modal-card{max-width:900px;max-height:85vh;overflow:auto;background:#fff;border-radius:18px;box-shadow:0 30px 80px rgba(0,0,0,.25);border:1px solid #eee}
     .modal-head{display:flex;justify-content:space-between;align-items:center;padding:18px 22px;border-bottom:1px solid #eee}
@@ -132,7 +145,7 @@
       .footer-grid{grid-template-columns:1fr}
       nav{display:none}
       .hamburger{display:flex}
-      .actions .btn{display:none}
+      .actions .btn.primary{display:none}
     }
   </style>
 </head>
@@ -153,20 +166,31 @@
         </ul>
       </nav>
       <div class="actions">
-        <button class="btn primary" data-scroll="#expertises" data-i18n="nav.cta">Découvrir nos expertises</button>
+        <a class="btn primary" data-scroll="#expertises" data-i18n="nav.cta">Découvrir nos expertises</a>
+        <a class="btn whatsapp" href="https://wa.me/22952964028" target="_blank" rel="noopener" aria-label="Discuter sur WhatsApp">WhatsApp</a>
         <button class="lang" id="langSwitch" aria-label="Changer de langue">FR / EN</button>
         <button class="hamburger" id="hamburger" aria-label="Ouvrir le menu">
           <span></span><span></span><span></span>
         </button>
       </div>
     </div>
+    <div class="backdrop" id="backdrop"></div>
     <aside class="mobile-drawer" id="drawer" aria-hidden="true">
-      <a href="#expertises" data-i18n="nav.expertises">Expertises</a>
-      <a href="#team" data-i18n="nav.team">Équipe</a>
-      <a href="#cases" data-i18n="nav.cases">Études de cas</a>
-      <a href="#blog" data-i18n="nav.blog">Blog</a>
-      <a href="#faq" data-i18n="nav.faq">FAQ</a>
-      <button class="lang" id="langSwitchM">FR / EN</button>
+      <div class="drawer-head">
+        <div class="title">Menu</div>
+        <button class="drawer-close" id="drawerClose">Fermer ✕</button>
+      </div>
+      <div class="drawer-body">
+        <a href="#expertises" data-i18n="nav.expertises">Expertises</a>
+        <a href="#team" data-i18n="nav.team">Équipe</a>
+        <a href="#cases" data-i18n="nav.cases">Études de cas</a>
+        <a href="#blog" data-i18n="nav.blog">Blog</a>
+        <a href="#faq" data-i18n="nav.faq">FAQ</a>
+      </div>
+      <div class="drawer-actions">
+        <a class="btn whatsapp" href="https://wa.me/22952964028" target="_blank" rel="noopener">WhatsApp</a>
+        <button class="lang" id="langSwitchM">FR / EN</button>
+      </div>
     </aside>
   </header>
 
@@ -232,19 +256,19 @@
       <p class="section-sub reveal" data-i18n="team.lead">Une équipe resserrée, expérimentée, dédiée à vos enjeux.</p>
       <div class="team">
         <article class="member reveal" aria-labelledby="m1">
-          <div class="avatar" aria-hidden="true"></div>
+          <div class="avatar" aria-hidden="true"><img src="https://images.unsplash.com/photo-1602471615287-a28ae8e82a6b?q=80&auto=format&fit=crop&w=800" alt="Portrait d'Alexandre Morel" loading="lazy"></div>
           <h3 id="m1">Alexandre Morel</h3>
           <div class="role" data-i18n="team.m1.role">Associé — Pénal des affaires</div>
           <p class="small" data-i18n="team.m1.bio">15 ans d’expérience en gestion de crise et contentieux pénal complexe pour groupes cotés et PME innovantes.</p>
         </article>
         <article class="member reveal" aria-labelledby="m2">
-          <div class="avatar" aria-hidden="true" style="background-image:url('https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?q=80&w=800&auto=format&fit=crop')"></div>
+          <div class="avatar" aria-hidden="true"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&auto=format&fit=crop&w=800" alt="Portrait de Clara Delaunay" loading="lazy"></div>
           <h3 id="m2">Clara Delaunay</h3>
           <div class="role" data-i18n="team.m2.role">Associée — Droit des affaires</div>
           <p class="small" data-i18n="team.m2.bio">Spécialiste M&A/contrats stratégiques, accompagne dirigeants dans les phases de croissance et de restructuration.</p>
         </article>
         <article class="member reveal" aria-labelledby="m3">
-          <div class="avatar" aria-hidden="true" style="background-image:url('https://images.unsplash.com/photo-1541534401786-2077eed87a72?q=80&w=800&auto=format&fit=crop')"></div>
+          <div class="avatar" aria-hidden="true"><img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?q=80&auto=format&fit=crop&w=800" alt="Portrait d'Hugo Perrin" loading="lazy"></div>
           <h3 id="m3">Hugo Perrin</h3>
           <div class="role" data-i18n="team.m3.role">Counsel — Droit du travail</div>
           <p class="small" data-i18n="team.m3.bio">Pilotage d’audits sociaux, négociations collectives et contentieux sensibles à forts enjeux réputationnels.</p>
@@ -254,30 +278,30 @@
 
     <section id="cases" class="container" aria-labelledby="cases-title">
       <h2 class="section-title reveal" id="cases-title" data-i18n="cases.title">Études de cas</h2>
-      <p class="section-sub reveal" data-i18n="cases.lead">Exemples fictifs inspirés de problématiques réelles, anonymisés.</p>
+      <p class="section-sub reveal" id="cases-lead" data-i18n="cases.lead">Exemples fictifs inspirés de problématiques réelles, anonymisés.</p>
       <div class="cases">
         <article class="case reveal" aria-labelledby="c1">
-          <div class="cover" aria-hidden="true"></div>
+          <img class="cover" src="https://images.unsplash.com/photo-1555375771-14b2a63968a1?q=80&auto=format&fit=crop&w=1600" alt="Salle de réunion — enquête interne" loading="lazy">
           <div class="content">
             <small data-i18n="cases.c1.tag">Pénal des affaires</small>
             <h3 id="c1" data-i18n="cases.c1.title">Crise fraude interne — enquête et défense</h3>
-            <p data-i18n="cases.c1.text">Mise en place d’une cellule de crise, conduite d’investigations internes, coordination avec les autorités. Résultat : limitation de l’exposition pénale et plan de conformité renforcé.</p>
+            <p data-i18n="cases.c1.text">Mise en place d’une cellule de crise, conduite d’investigations internes, coordination avec les autorités. Résultat : limitation de l’exposition pénale et plan de conformité renforcé.</p>
           </div>
         </article>
         <article class="case reveal" aria-labelledby="c2">
-          <div class="cover" aria-hidden="true" style="background-image:url('https://images.unsplash.com/photo-1499914485622-a88fac536970?q=80&w=1600&auto=format&fit=crop')"></div>
+          <img class="cover" src="https://images.unsplash.com/photo-1499914485622-a88fac536970?q=80&auto=format&fit=crop&w=1600" alt="Signature d'accord international" loading="lazy">
           <div class="content">
             <small data-i18n="cases.c2.tag">Droit des affaires</small>
             <h3 id="c2" data-i18n="cases.c2.title">Litige commercial international — issue négociée</h3>
-            <p data-i18n="cases.c2.text">Stratégie contentieuse et de négociation parallèle. Résultat : accord transactionnel robuste et maintien de la relation fournisseur stratégique.</p>
+            <p data-i18n="cases.c2.text">Stratégie contentieuse et de négociation parallèle. Résultat : accord transactionnel robuste et maintien de la relation fournisseur stratégique.</p>
           </div>
         </article>
         <article class="case reveal" aria-labelledby="c3">
-          <div class="cover" aria-hidden="true" style="background-image:url('https://images.unsplash.com/photo-1580894732444-8ecded7900cd?q=80&w=1600&auto=format&fit=crop')"></div>
+          <img class="cover" src="https://images.unsplash.com/photo-1580894732444-8ecded7900cd?q=80&auto=format&fit=crop&w=1600" alt="Réunion RH lors d'une réorganisation" loading="lazy">
           <div class="content">
             <small data-i18n="cases.c3.tag">Droit du travail</small>
             <h3 id="c3" data-i18n="cases.c3.title">Réorganisation — sécurisation sociale</h3>
-            <p data-i18n="cases.c3.text">Audit des pratiques, accompagnement des IRP, plan de communication interne. Résultat : calendrier tenu et contentieux évités.</p>
+            <p data-i18n="cases.c3.text">Audit des pratiques, accompagnement des IRP, plan de communication interne. Résultat : calendrier tenu et contentieux évités.</p>
           </div>
         </article>
       </div>
@@ -288,27 +312,30 @@
       <p class="section-sub reveal" data-i18n="blog.lead">Analyses synthétiques pour dirigeants et juristes d’entreprise.</p>
       <div class="posts">
         <article class="post reveal" aria-labelledby="p1">
-          <div class="cover" aria-hidden="true"></div>
+          <img class="cover" src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&auto=format&fit=crop&w=1600" alt="Dossier juridique en cours d'analyse" loading="lazy">
           <div class="content">
-            <h3 id="p1" data-i18n="blog.p1.title">Garde à vue : droits et réflexes essentiels</h3>
-            <p class="small" data-i18n="blog.p1.text">Que prévoir en amont et comment réagir en situation : une checklist opérationnelle pour dirigeants.</p>
+            <h3 id="p1" data-i18n="blog.p1.title">Garde à vue : droits et réflexes essentiels</h3>
+            <p class="small" data-i18n="blog.p1.text">Que prévoir en amont et comment réagir en situation : une checklist opérationnelle pour dirigeants.</p>
             <button class="btn" data-article="p1">Lire l’analyse</button>
+            <a class="btn whatsapp" href="https://wa.me/22952964028" target="_blank" rel="noopener">WhatsApp</a>
           </div>
         </article>
         <article class="post reveal" aria-labelledby="p2">
-          <div class="cover" aria-hidden="true" style="background-image:url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1600&auto=format&fit=crop')"></div>
+          <img class="cover" src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&auto=format&fit=crop&w=1600" alt="Contrat avec clauses en surbrillance" loading="lazy">
           <div class="content">
             <h3 id="p2" data-i18n="blog.p2.title">Clauses clés des contrats stratégiques</h3>
-            <p class="small" data-i18n="blog.p2.text">Limiter les risques et anticiper les litiges : focus sur 7 clauses souvent sous-évaluées.</p>
+            <p class="small" data-i18n="blog.p2.text">Limiter les risques et anticiper les litiges : focus sur 7 clauses souvent sous-évaluées.</p>
             <button class="btn" data-article="p2">Lire l’analyse</button>
+            <a class="btn whatsapp" href="https://wa.me/22952964028" target="_blank" rel="noopener">WhatsApp</a>
           </div>
         </article>
         <article class="post reveal" aria-labelledby="p3">
-          <div class="cover" aria-hidden="true" style="background-image:url('https://images.unsplash.com/photo-1508830524289-0adcbe822b40?q=80&w=1600&auto=format&fit=crop')"></div>
+          <img class="cover" src="https://images.unsplash.com/photo-1508830524289-0adcbe822b40?q=80&auto=format&fit=crop&w=1600" alt="Réunion de pilotage sociale" loading="lazy">
           <div class="content">
-            <h3 id="p3" data-i18n="blog.p3.title">Réorganisations : sécuriser la dimension sociale</h3>
-            <p class="small" data-i18n="blog.p3.text">Aligner impératifs business et droit du travail : méthode, calendrier, preuves.</p>
+            <h3 id="p3" data-i18n="blog.p3.title">Réorganisations : sécuriser la dimension sociale</h3>
+            <p class="small" data-i18n="blog.p3.text">Aligner impératifs business et droit du travail : méthode, calendrier, preuves.</p>
             <button class="btn" data-article="p3">Lire l’analyse</button>
+            <a class="btn whatsapp" href="https://wa.me/22952964028" target="_blank" rel="noopener">WhatsApp</a>
           </div>
         </article>
       </div>
@@ -317,19 +344,22 @@
     <section id="faq" class="container" aria-labelledby="faq-title">
       <h2 class="section-title reveal" id="faq-title" data-i18n="faq.title">Questions fréquentes</h2>
       <div class="faq">
-        <details class="reveal"><summary data-i18n="faq.q1.q">Intervenez-vous en urgence ?</summary><div class="small" data-i18n="faq.q1.a">Oui, une prise en charge d’amorçage sous 48 h est prévue dans cette démonstration.</div></details>
-        <details class="reveal"><summary data-i18n="faq.q2.q">Travaillez-vous avec des startups et des groupes ?</summary><div class="small" data-i18n="faq.q2.a">Oui, l’accompagnement s’adapte aux structures en croissance comme aux ETI/Groupes.</div></details>
-        <details class="reveal"><summary data-i18n="faq.q3.q">Proposez-vous des audits de conformité ?</summary><div class="small" data-i18n="faq.q3.a">Oui, audits ciblés (pénal éco, contrats, social) avec plan d’actions priorisé.</div></details>
-        <details class="reveal"><summary data-i18n="faq.q4.q">Avez-vous une spécialité sectorielle ?</summary><div class="small" data-i18n="faq.q4.a">Expérience transversale, focus industrie, tech, distribution, services.</div></details>
-        <details class="reveal"><summary data-i18n="faq.q5.q">Pouvez-vous gérer un litige international ?</summary><div class="small" data-i18n="faq.q5.a">Oui, avec coordination d’experts locaux et stratégie contentieuse/négociation.</div></details>
-        <details class="reveal"><summary data-i18n="faq.q6.q">Comment se déroule la première étude ?</summary><div class="small" data-i18n="faq.q6.a">Cartographie des risques, objectifs, calendrier et livrables — sur mesure.</div></details>
+        <details class="reveal"><summary data-i18n="faq.q1.q">Intervenez-vous en urgence ?</summary><div class="small" data-i18n="faq.q1.a">Oui, une prise en charge d’amorçage sous 48 h est prévue dans cette démonstration.</div></details>
+        <details class="reveal"><summary data-i18n="faq.q2.q">Travaillez-vous avec des startups et des groupes ?</summary><div class="small" data-i18n="faq.q2.a">Oui, l’accompagnement s’adapte aux structures en croissance comme aux ETI/Groupes.</div></details>
+        <details class="reveal"><summary data-i18n="faq.q3.q">Proposez-vous des audits de conformité ?</summary><div class="small" data-i18n="faq.q3.a">Oui, audits ciblés (pénal éco, contrats, social) avec plan d’actions priorisé.</div></details>
+        <details class="reveal"><summary data-i18n="faq.q4.q">Avez-vous une spécialité sectorielle ?</summary><div class="small" data-i18n="faq.q4.a">Expérience transversale, focus industrie, tech, distribution, services.</div></details>
+        <details class="reveal"><summary data-i18n="faq.q5.q">Pouvez-vous gérer un litige international ?</summary><div class="small" data-i18n="faq.q5.a">Oui, avec coordination d’experts locaux et stratégie contentieuse/négociation.</div></details>
+        <details class="reveal"><summary data-i18n="faq.q6.q">Comment se déroule la première étude ?</summary><div class="small" data-i18n="faq.q6.a">Cartographie des risques, objectifs, calendrier et livrables — sur mesure.</div></details>
       </div>
     </section>
 
     <section class="container">
       <div class="cta reveal" role="region" aria-label="Action">
-        <div class="cta-text" data-i18n="cta.title">Prêts à protéger vos intérêts ?</div>
-        <button class="btn primary" data-scroll="#expertises" data-i18n="cta.btn">Découvrir nos expertises</button>
+        <div class="cta-text" data-i18n="cta.title">Prêts à protéger vos intérêts ?</div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <a class="btn primary" data-scroll="#expertises" data-i18n="cta.btn">Découvrir nos expertises</a>
+          <a class="btn whatsapp" href="https://wa.me/22952964028" target="_blank" rel="noopener">Discuter sur WhatsApp</a>
+        </div>
       </div>
     </section>
   </main>
@@ -337,12 +367,14 @@
   <footer>
     <div class="container footer-grid" role="contentinfo">
       <div>
-        <div class="logo" aria-label="Lexis & Partners"><span class="x3d">Lexis & Partners</span></div>
+        <div class="footer-logo"><span class="x3d">Lexis & Partners</span></div>
+        <div class="divider" aria-hidden="true"></div>
         <p class="small" data-i18n="footer.addr">Basés à Lyon, France — démonstration sans coordonnées.</p>
         <p class="small">© <span id="year"></span> Lexis & Partners — <span data-i18n="footer.rights">Tous droits réservés</span>.</p>
+        <p class="credit">Site de démonstration créé par <strong>Martial HOSSOU</strong>, CEO de <strong>CREATIVE ENTREPRISE</strong>.</p>
       </div>
       <div>
-        <strong data-i18n="footer.nav">Navigation</strong>
+        <strong>Navigation</strong>
         <ul>
           <li><a href="#expertises" data-i18n="nav.expertises">Expertises</a></li>
           <li><a href="#team" data-i18n="nav.team">Équipe</a></li>
@@ -354,6 +386,8 @@
       <div>
         <strong data-i18n="footer.lang">Langue</strong><br/>
         <button class="lang" id="langSwitch2" aria-label="Changer de langue (pied)">FR / EN</button>
+        <div style="height:10px"></div>
+        <a class="btn whatsapp" href="https://wa.me/22952964028" target="_blank" rel="noopener">WhatsApp</a>
       </div>
     </div>
   </footer>
@@ -380,7 +414,7 @@
     parallax();
     window.addEventListener('scroll', parallax, {passive:true});
 
-    // Smooth scroll for buttons/links in drawer as well
+    // Smooth scroll
     function smoothLinks(root=document){
       root.querySelectorAll('[href^="#"],[data-scroll]').forEach(el=>{
         el.addEventListener('click', e=>{
@@ -406,10 +440,13 @@
     // Mobile drawer
     const drawer = document.getElementById('drawer');
     const burger = document.getElementById('hamburger');
-    function openDrawer(){ drawer.classList.add('open'); drawer.setAttribute('aria-hidden','false'); }
-    function closeDrawer(){ drawer.classList.remove('open'); drawer.setAttribute('aria-hidden','true'); }
-    burger.addEventListener('click', ()=> drawer.classList.contains('open')? closeDrawer() : openDrawer());
-    drawer.addEventListener('click', (e)=>{ if(e.target===drawer) closeDrawer(); });
+    const backdrop = document.getElementById('backdrop');
+    const closeBtn = document.getElementById('drawerClose');
+    function openDrawer(){ drawer.classList.add('open'); drawer.setAttribute('aria-hidden','false'); backdrop.classList.add('show'); }
+    function closeDrawer(){ drawer.classList.remove('open'); drawer.setAttribute('aria-hidden','true'); backdrop.classList.remove('show'); }
+    burger.addEventListener('click', openDrawer);
+    closeBtn.addEventListener('click', closeDrawer);
+    backdrop.addEventListener('click', closeDrawer);
 
     // I18N
     const I18N = {
@@ -418,9 +455,9 @@
         hero:{title:"Votre défense, notre priorité.", lead:"Cabinet d’avocats haut de gamme à Lyon, nous accompagnons dirigeants et entreprises dans leurs enjeux pénaux, d’affaires et du travail avec rigueur stratégique et résultats mesurables.", badge1:"+15 ans d’expérience", badge2:"92% dossiers gagnés", badge3:"Basés à Lyon, France", card:{title:"Intervenir vite, défendre fort, sécuriser durablement."}, metric1:{label:"Délai moyen", detail:"Prise en charge initiale"}, metric2:{label:"Taux de succès", detail:"Sur 3 dernières années"}, metric3:{label:"Satisfaction", detail:"Avis internes anonymisés"}},
         expertises:{title:"Expertises", lead:"Trois pôles pour couvrir vos besoins stratégiques et opérationnels.", penal:{title:"Droit pénal des affaires", text:"Gestion de crise, garde à vue, contentieux pénal économique, prévention du risque et conformité. Méthode d’intervention rapide avec cellule dédiée 24/7 (démo)."}, business:{title:"Droit des affaires", text:"Fusions-acquisitions, contrats complexes, gouvernance, litiges commerciaux. Structuration juridique au service de la performance et de la résolution efficace des différends."}, work:{title:"Droit du travail", text:"Relations individuelles et collectives, audits sociaux, contentieux prud’homal, négociations sensibles. Sécurisation des pratiques et maîtrise des risques RH."}},
         team:{title:"Équipe", lead:"Une équipe resserrée, expérimentée, dédiée à vos enjeux.", m1:{role:"Associé — Pénal des affaires", bio:"15 ans d’expérience en gestion de crise et contentieux pénal complexe pour groupes cotés et PME innovantes."}, m2:{role:"Associée — Droit des affaires", bio:"Spécialiste M&A/contrats stratégiques, accompagne dirigeants dans les phases de croissance et de restructuration."}, m3:{role:"Counsel — Droit du travail", bio:"Pilotage d’audits sociaux, négociations collectives et contentieux sensibles à forts enjeux réputationnels."}},
-        cases:{title:"Études de cas", lead:"Exemples fictifs inspirés de problématiques réelles, anonymisés.", c1:{tag:"Pénal des affaires", title:"Crise fraude interne — enquête et défense", text:"Mise en place d’une cellule de crise, conduite d’investigations internes, coordination avec les autorités. Résultat : limitation de l’exposition pénale et plan de conformité renforcé."}, c2:{tag:"Droit des affaires", title:"Litige commercial international — issue négociée", text:"Stratégie contentieuse et de négociation parallèle. Résultat : accord transactionnel robuste et maintien de la relation fournisseur stratégique."}, c3:{tag:"Droit du travail", title:"Réorganisation — sécurisation sociale", text:"Audit des pratiques, accompagnement des IRP, plan de communication interne. Résultat : calendrier tenu et contentieux évités."}},
-        blog:{title:"Blog", lead:"Analyses synthétiques pour dirigeants et juristes d’entreprise.", p1:{title:"Garde à vue : droits et réflexes essentiels", text:"Que prévoir en amont et comment réagir en situation : une checklist opérationnelle pour dirigeants."}, p2:{title:"Clauses clés des contrats stratégiques", text:"Limiter les risques et anticiper les litiges : focus sur 7 clauses souvent sous-évaluées."}, p3:{title:"Réorganisations : sécuriser la dimension sociale", text:"Aligner impératifs business et droit du travail : méthode, calendrier, preuves."}},
-        cta:{title:"Prêts à protéger vos intérêts ?", btn:"Découvrir nos expertises"},
+        cases:{title:"Études de cas", lead:"Exemples fictifs inspirés de problématiques réelles, anonymisés.", c1:{tag:"Pénal des affaires", title:"Crise fraude interne — enquête et défense", text:"Mise en place d’une cellule de crise, conduite d’investigations internes, coordination avec les autorités. Résultat : limitation de l’exposition pénale et plan de conformité renforcé."}, c2:{tag:"Droit des affaires", title:"Litige commercial international — issue négociée", text:"Stratégie contentieuse et de négociation parallèle. Résultat : accord transactionnel robuste et maintien de la relation fournisseur stratégique."}, c3:{tag:"Droit du travail", title:"Réorganisation — sécurisation sociale", text:"Audit des pratiques, accompagnement des IRP, plan de communication interne. Résultat : calendrier tenu et contentieux évités."}},
+        blog:{title:"Blog", lead:"Analyses synthétiques pour dirigeants et juristes d’entreprise.", p1:{title:"Garde à vue : droits et réflexes essentiels", text:"Que prévoir en amont et comment réagir en situation : une checklist opérationnelle pour dirigeants."}, p2:{title:"Clauses clés des contrats stratégiques", text:"Limiter les risques et anticiper les litiges : focus sur 7 clauses souvent sous-évaluées."}, p3:{title:"Réorganisations : sécuriser la dimension sociale", text:"Aligner impératifs business et droit du travail : méthode, calendrier, preuves."}},
+        cta:{title:"Prêts à protéger vos intérêts ?", btn:"Découvrir nos expertises"},
         footer:{addr:"Basés à Lyon, France — démonstration sans coordonnées.", rights:"Tous droits réservés", nav:"Navigation", lang:"Langue"}
       },
       en: {
@@ -449,42 +486,19 @@
     const saved = localStorage.getItem('LEXIS_LANG') || (navigator.language?.startsWith('fr') ? 'fr' : 'en');
     applyI18n(saved);
 
-    function toggleLang(){ applyI18n((localStorage.getItem('LEXIS_LANG') === 'fr') ? 'en' : 'fr'); }
-    document.getElementById('langSwitch').addEventListener('click', toggleLang);
-    document.getElementById('langSwitch2').addEventListener('click', toggleLang);
-    document.getElementById('langSwitchM').addEventListener('click', toggleLang);
-
     // Articles modaux (lecture réelle)
     const articles = {
       p1: {
-        fr: {
-          title: "Garde à vue : droits et réflexes essentiels",
-          content: `<p>En cas de garde à vue, trois réflexes : <strong>1) silence maîtrisé</strong> (ne jamais s’auto-incriminer), <strong>2) demande d’assistance d’un avocat</strong> dès le début, <strong>3) gestion de la documentation</strong> (ne rien signer sans lecture et conseil). Anticipez via une <em>charte interne</em> : personnes à prévenir, consignes, fiches pratiques.</p><ul><li>Accès immédiat au dossier : cadrage légal et demandes motivées.</li><li>Traçabilité des échanges : notes, confirmations écrites.</li><li>Communication de crise : un seul porte-parole, messages validés.</li></ul>`
-        },
-        en: {
-          title: "Police custody: rights & essential reflexes",
-          content: `<p>In police custody, three key reflexes: <strong>1) controlled silence</strong> (avoid self-incrimination), <strong>2) request counsel</strong> immediately, <strong>3) document management</strong> (sign nothing without advice). Anticipate via an <em>internal playbook</em>: alert chain, instructions, checklists.</p><ul><li>Prompt access to the file: legal framework, reasoned requests.</li><li>Traceability: notes, written confirmations.</li><li>Crisis comms: single spokesperson, validated messaging.</li></ul>`
-        }
+        fr: { title: "Garde à vue : droits et réflexes essentiels", content: `<p>En cas de garde à vue, trois réflexes : <strong>1) silence maîtrisé</strong> (ne jamais s’auto-incriminer), <strong>2) demande d’assistance d’un avocat</strong> dès le début, <strong>3) gestion de la documentation</strong> (ne rien signer sans lecture et conseil). Anticipez via une <em>charte interne</em> : personnes à prévenir, consignes, fiches pratiques.</p><ul><li>Accès immédiat au dossier : cadrage légal et demandes motivées.</li><li>Traçabilité des échanges : notes, confirmations écrites.</li><li>Communication de crise : un seul porte-parole, messages validés.</li></ul>` },
+        en: { title: "Police custody: rights & essential reflexes", content: `<p>In police custody, three key reflexes: <strong>1) controlled silence</strong> (avoid self-incrimination), <strong>2) request counsel</strong> immediately, <strong>3) document management</strong> (sign nothing without advice). Anticipate via an <em>internal playbook</em>: alert chain, instructions, checklists.</p><ul><li>Prompt access to the file: legal framework, reasoned requests.</li><li>Traceability: notes, written confirmations.</li><li>Crisis comms: single spokesperson, validated messaging.</li></ul>` }
       },
       p2: {
-        fr: {
-          title: "Clauses clés des contrats stratégiques",
-          content: `<p>Sept clauses souvent sous-évaluées : <strong>responsabilité</strong>, <strong>garanties</strong>, <strong>confidentialité</strong>, <strong>pénalités de retard</strong>, <strong>résiliation</strong>, <strong>propriété intellectuelle</strong>, <strong>juridiction</strong>. Chaque clause doit lier <em>risque</em>, <em>preuve</em> et <em>exécution</em>.</p><ol><li><strong>Responsabilité</strong> : plafonds réalistes, exclusions ciblées.</li><li><strong>Garanties</strong> : durée, étendue, recours.</li><li><strong>Confidentialité</strong> : périmètre, durée, exceptions légales.</li><li><strong>Retard</strong> : pénalités progressives, preuves d’impact.</li><li><strong>Résiliation</strong> : fautes caractérisées, préavis, réversibilité.</li><li><strong>PI</strong> : cession/licence, livrables, infringements.</li><li><strong>Juridiction</strong> : for, arbitrage, langue.</li></ol>`
-        },
-        en: {
-          title: "Key clauses in strategic contracts",
-          content: `<p>Seven often underestimated clauses: <strong>liability</strong>, <strong>warranties</strong>, <strong>confidentiality</strong>, <strong>delay penalties</strong>, <strong>termination</strong>, <strong>IP</strong>, <strong>jurisdiction</strong>. Each must link <em>risk</em>, <em>evidence</em>, and <em>enforcement</em>.</p><ol><li><strong>Liability</strong>: realistic caps, targeted exclusions.</li><li><strong>Warranties</strong>: term, scope, remedies.</li><li><strong>Confidentiality</strong>: scope, duration, legal carve-outs.</li><li><strong>Delay</strong>: tiered penalties, impact proof.</li><li><strong>Termination</strong>: material breach, notice, reversibility.</li><li><strong>IP</strong>: assignment/licence, deliverables, infringements.</li><li><strong>Jurisdiction</strong>: forum, arbitration, language.</li></ol>`
-        }
+        fr: { title: "Clauses clés des contrats stratégiques", content: `<p>Sept clauses souvent sous-évaluées : <strong>responsabilité</strong>, <strong>garanties</strong>, <strong>confidentialité</strong>, <strong>pénalités de retard</strong>, <strong>résiliation</strong>, <strong>propriété intellectuelle</strong>, <strong>juridiction</strong>. Chaque clause doit lier <em>risque</em>, <em>preuve</em> et <em>exécution</em>.</p><ol><li><strong>Responsabilité</strong> : plafonds réalistes, exclusions ciblées.</li><li><strong>Garanties</strong> : durée, étendue, recours.</li><li><strong>Confidentialité</strong> : périmètre, durée, exceptions légales.</li><li><strong>Retard</strong> : pénalités progressives, preuves d’impact.</li><li><strong>Résiliation</strong> : fautes caractérisées, préavis, réversibilité.</li><li><strong>PI</strong> : cession/licence, livrables, infringements.</li><li><strong>Juridiction</strong> : for, arbitrage, langue.</li></ol>` },
+        en: { title: "Key clauses in strategic contracts", content: `<p>Seven often underestimated clauses: <strong>liability</strong>, <strong>warranties</strong>, <strong>confidentiality</strong>, <strong>delay penalties</strong>, <strong>termination</strong>, <strong>IP</strong>, <strong>jurisdiction</strong>. Each must link <em>risk</em>, <em>evidence</em>, and <em>enforcement</em>.</p><ol><li><strong>Liability</strong>: realistic caps, targeted exclusions.</li><li><strong>Warranties</strong>: term, scope, remedies.</li><li><strong>Confidentiality</strong>: scope, duration, legal carve-outs.</li><li><strong>Delay</strong>: tiered penalties, impact proof.</li><li><strong>Termination</strong>: material breach, notice, reversibility.</li><li><strong>IP</strong>: assignment/licence, deliverables, infringements.</li><li><strong>Jurisdiction</strong>: forum, arbitration, language.</li></ol>` }
       },
       p3: {
-        fr: {
-          title: "Réorganisations : sécuriser la dimension sociale",
-          content: `<p>Une réorganisation réussie repose sur un <strong>calendrier</strong> crédible, un <strong>dialogue social</strong> continu et une <strong>preuve</strong> documentaire soignée. Objectifs : limiter le risque prud’homal, préserver la marque employeur.</p><ul><li><strong>Audit des pratiques</strong> et cartographie des risques.</li><li><strong>IRP</strong> : information-consultation, procès-verbaux.</li><li><strong>Communication</strong> : messages cohérents, Q/R managers.</li></ul>`
-        },
-        en: {
-          title: "Restructuring: securing the social dimension",
-          content: `<p>Successful restructuring relies on a credible <strong>timeline</strong>, continuous <strong>social dialogue</strong>, and thorough <strong>documentation</strong>. Goals: mitigate litigation risk and protect employer brand.</p><ul><li><strong>Practice audit</strong> & risk mapping.</li><li><strong>Works councils</strong>: inform–consult, minutes.</li><li><strong>Comms</strong>: coherent messaging, manager Q&A.</li></ul>`
-        }
+        fr: { title: "Réorganisations : sécuriser la dimension sociale", content: `<p>Une réorganisation réussie repose sur un <strong>calendrier</strong> crédible, un <strong>dialogue social</strong> continu et une <strong>preuve</strong> documentaire soignée. Objectifs : limiter le risque prud’homal, préserver la marque employeur.</p><ul><li><strong>Audit des pratiques</strong> et cartographie des risques.</li><li><strong>IRP</strong> : information-consultation, procès-verbaux.</li><li><strong>Communication</strong> : messages cohérents, Q/R managers.</li></ul>` },
+        en: { title: "Restructuring: securing the social dimension", content: `<p>Successful restructuring relies on a credible <strong>timeline</strong>, continuous <strong>social dialogue</strong>, and thorough <strong>documentation</strong>. Goals: mitigate litigation risk and protect employer brand.</p><ul><li><strong>Practice audit</strong> & risk mapping.</li><li><strong>Works councils</strong>: inform–consult, minutes.</li><li><strong>Comms</strong>: coherent messaging, manager Q&A.</li></ul>` }
       }
     };
 
@@ -509,12 +523,26 @@
       modal.classList.add('open');
     }
     function closeArticle(){ modal.classList.remove('open'); }
-    document.getElementById('closeModal').addEventListener('click', closeArticle);
-    modal.addEventListener('click', (e)=>{ if(e.target===modal) closeArticle(); });
-
-    document.querySelectorAll('[data-article]').forEach(btn=>{
-      btn.addEventListener('click', ()=> openArticle(btn.dataset.article));
+    document.addEventListener('click', (e)=>{
+      if(e.target && e.target.matches('[data-article]')){ openArticle(e.target.dataset.article); }
     });
+    modal.addEventListener('click', (e)=>{ if(e.target===modal) closeArticle(); });
+    document.getElementById('closeModal').addEventListener('click', closeArticle);
+
+    function applyI18n(locale){
+      document.querySelectorAll('[data-i18n]').forEach(el=>{
+        const path = el.getAttribute('data-i18n').split('.');
+        let val = I18N[locale];
+        for(const p of path){ val = val?.[p]; }
+        if(typeof val === 'string'){ el.textContent = val; }
+      });
+      document.documentElement.lang = locale === 'fr' ? 'fr' : 'en';
+      localStorage.setItem('LEXIS_LANG', locale);
+    }
+    function toggleLang(){ applyI18n((localStorage.getItem('LEXIS_LANG') === 'fr') ? 'en' : 'fr'); }
+    document.getElementById('langSwitch').addEventListener('click', toggleLang);
+    document.getElementById('langSwitch2').addEventListener('click', toggleLang);
+    document.getElementById('langSwitchM').addEventListener('click', toggleLang);
   </script>
 </body>
 </html>
