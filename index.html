@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lexis & Partners — Cabinet d’avocats (Lyon)</title>
+  <meta name="description" content="Cabinet d’avocats haut de gamme à Lyon. Expertise : pénal, affaires, travail. Études de cas, équipe, blog. Site multilingue FR/EN, design premium, performances optimisées." />
+  <meta property="og:title" content="Lexis & Partners — Cabinet d’avocats (Lyon)" />
+  <meta property="og:description" content="Expertise : pénal, affaires, travail. Design luxueux, parallaxe, cas réels." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#C9A227" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --gold:#C9A227;
+      --bg:#fcfcfc;
+      --ink:#171717;
+      --ink-2:#404040;
+      --muted:#8a8a8a;
+      --card:#ffffff;
+      --shadow: 0 10px 30px rgba(0,0,0,.08);
+      --radius: 18px;
+      --maxw: 1200px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;line-height:1.6}
+    img{max-width:100%;display:block}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:var(--maxw);margin-inline:auto;padding-inline:24px}
+    .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+    .skip-link:focus{position:fixed;left:16px;top:16px;width:auto;height:auto;background:#000;color:#fff;padding:.6rem 1rem;border-radius:10px;z-index:10000}
+
+    /* Header */
+    header{position:sticky;top:0;z-index:999;background:rgba(252,252,252,.8);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid #eee}
+    .nav{display:flex;align-items:center;justify-content:space-between;height:70px}
+    .brand{display:flex;align-items:center;gap:14px}
+    .logo{font-family:"Playfair Display",serif;font-weight:700;font-size:22px;letter-spacing:.3px;position:relative;color:var(--ink)}
+    .logo .x3d{display:inline-block;transform:translateZ(0);text-shadow:0 1px 0 #a98815, 0 2px 0 #a98815, 0 3px 0 #a98815, 0 4px 0 #a98815, 0 5px 6px rgba(0,0,0,.25);color:var(--gold)}
+    nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0}
+    nav a{font-weight:600;letter-spacing:.2px}
+    .actions{display:flex;align-items:center;gap:10px}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:.7rem 1rem;border-radius:12px;border:1px solid #e9e9e9;background:#fff;box-shadow:var(--shadow);font-weight:600}
+    .btn.primary{background:var(--ink);color:#fff;border-color:#000}
+    .lang{border:1px solid #e5e5e5;background:#fff;border-radius:12px;padding:.5rem .75rem;font-weight:600}
+
+    /* Hero */
+    .hero{position:relative;isolation:isolate}
+    .hero .bg{position:absolute;inset:-20vh 0 0 0;background:linear-gradient(180deg, rgba(201,162,39,.18), rgba(201,162,39,0) 40%), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="%23f7f2e0"/><stop offset="1" stop-color="%23ffffff"/></linearGradient></defs><rect width="100%" height="100%" fill="url(%23g)"/></svg>') center/cover no-repeat;z-index:-1;transform:translateY(var(--parallax,0px));will-change:transform}
+    .hero .container{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;min-height:76vh;align-items:center;padding-block:72px}
+    h1{font-family:"Playfair Display",serif;font-size:clamp(34px,3.8vw,58px);line-height:1.1;margin:0 0 10px}
+    .lead{font-size:clamp(16px,1.2vw,19px);color:var(--ink-2);max-width:54ch}
+    .badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+    .badge{border:1px solid #e8e8e8;background:#fff;border-radius:999px;padding:.35rem .7rem;font-weight:600}
+    .hero-card{background:var(--card);border:1px solid #eee;border-radius:var(--radius);box-shadow:var(--shadow);padding:22px}
+    .hero-metric{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:12px}
+    .metric{background:#fafafa;border:1px solid #eee;border-radius:14px;padding:14px;text-align:center}
+    .metric strong{display:block;font-size:22px}
+
+    /* Sections */
+    section{padding-block:80px}
+    .section-title{font-family:"Playfair Display",serif;font-size:34px;margin:0 0 14px}
+    .section-sub{color:var(--muted);margin:0 0 32px}
+
+    /* Expertises */
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .card{background:var(--card);border:1px solid #eee;border-radius:var(--radius);box-shadow:var(--shadow);padding:24px;transform:translateY(6px);transition:transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s}
+    .card:hover{transform:translateY(0);box-shadow:0 14px 40px rgba(0,0,0,.12)}
+    .card h3{margin:0 0 8px;font-size:20px}
+
+    /* Équipe */
+    .team{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .member{padding:18px;border:1px solid #eee;border-radius:var(--radius);background:#fff;box-shadow:var(--shadow)}
+    .avatar{aspect-ratio:1/1;border-radius:14px;background:linear-gradient(135deg,#f5f0e5,#fff);border:1px solid #eee;display:flex;align-items:center;justify-content:center;font-family:"Playfair Display",serif;font-size:28px;color:var(--gold);text-shadow:0 1px 0 #a98815}
+    .role{color:var(--muted);font-weight:600;font-size:14px}
+
+    /* Cas */
+    .cases{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .case{padding:22px;border:1px solid #eee;border-radius:var(--radius);background:#fff;box-shadow:var(--shadow)}
+    .case small{color:var(--muted);font-weight:700;letter-spacing:.3px}
+
+    /* Blog */
+    .posts{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .post{padding:0;border-radius:var(--radius);overflow:hidden;border:1px solid #eee;background:#fff;box-shadow:var(--shadow)}
+    .post .cover{height:160px;background:linear-gradient(135deg,#f3e8c2,#fff)}
+    .post .content{padding:18px}
+
+    /* FAQ */
+    .faq{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+    details{border:1px solid #eee;border-radius:14px;padding:14px;background:#fff}
+    summary{font-weight:700;cursor:pointer}
+
+    /* CTA band */
+    .cta{padding:50px;border-radius:20px;background:linear-gradient(135deg, rgba(201,162,39,.12), #fff);border:1px solid #eee;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+    .cta .cta-text{font-family:"Playfair Display",serif;font-size:26px}
+
+    /* Footer */
+    footer{padding-block:50px;border-top:1px solid #eee;background:#fff}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:22px}
+    .small{color:var(--muted);font-size:14px}
+
+    /* Reveal on scroll */
+    .reveal{opacity:0;transform:translateY(12px);transition:opacity .6s ease, transform .6s ease}
+    .reveal.in{opacity:1;transform:translateY(0)}
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero .container{grid-template-columns:1fr}
+      .grid-3,.team,.cases,.posts,.faq{grid-template-columns:1fr}
+      .footer-grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Aller au contenu principal</a>
+  <header>
+    <div class="container nav" role="navigation" aria-label="Navigation principale">
+      <div class="brand" aria-label="Page d’accueil">
+        <div class="logo" aria-label="Lexis & Partners"><span class="x3d">Lexis & Partners</span></div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#expertises" data-i18n="nav.expertises">Expertises</a></li>
+          <li><a href="#team" data-i18n="nav.team">Équipe</a></li>
+          <li><a href="#cases" data-i18n="nav.cases">Études de cas</a></li>
+          <li><a href="#blog" data-i18n="nav.blog">Blog</a></li>
+          <li><a href="#faq" data-i18n="nav.faq">FAQ</a></li>
+        </ul>
+      </nav>
+      <div class="actions">
+        <button class="btn primary" data-scroll="#expertises" data-i18n="nav.cta">Découvrir nos expertises</button>
+        <button class="lang" id="langSwitch" aria-label="Changer de langue">FR / EN</button>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero" aria-label="Présentation">
+    <div class="bg" aria-hidden="true"></div>
+    <div class="container">
+      <div>
+        <h1 class="reveal" data-i18n="hero.title">Votre défense, notre priorité.</h1>
+        <p class="lead reveal" data-i18n="hero.lead">Cabinet d’avocats haut de gamme à Lyon, nous accompagnons dirigeants et entreprises dans leurs enjeux pénaux, d’affaires et du travail avec rigueur stratégique et résultats mesurables.</p>
+        <div class="badges reveal" aria-label="Chiffres clés">
+          <span class="badge" data-i18n="hero.badge1">+15 ans d’expérience</span>
+          <span class="badge" data-i18n="hero.badge2">92% dossiers gagnés</span>
+          <span class="badge" data-i18n="hero.badge3">Basés à Lyon, France</span>
+        </div>
+      </div>
+      <div class="hero-card reveal" role="region" aria-label="Synthèse">
+        <strong data-i18n="hero.card.title">Intervenir vite, défendre fort, sécuriser durablement.</strong>
+        <div class="hero-metric" role="list" aria-label="Indicateurs de performance">
+          <div class="metric" role="listitem">
+            <small data-i18n="hero.metric1.label">Délai moyen</small>
+            <strong>48h</strong>
+            <div class="small" data-i18n="hero.metric1.detail">Prise en charge initiale</div>
+          </div>
+          <div class="metric" role="listitem">
+            <small data-i18n="hero.metric2.label">Taux de succès</small>
+            <strong>92%</strong>
+            <div class="small" data-i18n="hero.metric2.detail">Sur 3 dernières années</div>
+          </div>
+          <div class="metric" role="listitem">
+            <small data-i18n="hero.metric3.label">Satisfaction</small>
+            <strong>4.8/5</strong>
+            <div class="small" data-i18n="hero.metric3.detail">Avis internes anonymisés</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main id="main">
+    <section id="expertises" class="container" aria-labelledby="expertises-title">
+      <h2 class="section-title reveal" id="expertises-title" data-i18n="expertises.title">Expertises</h2>
+      <p class="section-sub reveal" data-i18n="expertises.lead">Trois pôles pour couvrir vos besoins stratégiques et opérationnels.</p>
+      <div class="grid-3">
+        <article class="card reveal" aria-labelledby="xp1">
+          <h3 id="xp1" data-i18n="expertises.penal.title">Droit pénal des affaires</h3>
+          <p data-i18n="expertises.penal.text">Gestion de crise, garde à vue, contentieux pénal économique, prévention du risque et conformité. Méthode d’intervention rapide avec cellule dédiée 24/7 (démo).</p>
+        </article>
+        <article class="card reveal" aria-labelledby="xp2">
+          <h3 id="xp2" data-i18n="expertises.business.title">Droit des affaires</h3>
+          <p data-i18n="expertises.business.text">Fusions-acquisitions, contrats complexes, gouvernance, litiges commerciaux. Structuration juridique au service de la performance et de la résolution efficace des différends.</p>
+        </article>
+        <article class="card reveal" aria-labelledby="xp3">
+          <h3 id="xp3" data-i18n="expertises.work.title">Droit du travail</h3>
+          <p data-i18n="expertises.work.text">Relations individuelles et collectives, audits sociaux, contentieux prud’homal, négociations sensibles. Sécurisation des pratiques et maîtrise des risques RH.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="team" class="container" aria-labelledby="team-title">
+      <h2 class="section-title reveal" id="team-title" data-i18n="team.title">Équipe</h2>
+      <p class="section-sub reveal" data-i18n="team.lead">Une équipe resserrée, expérimentée, dédiée à vos enjeux.</p>
+      <div class="team">
+        <article class="member reveal" aria-labelledby="m1">
+          <div class="avatar" aria-hidden="true">LP</div>
+          <h3 id="m1">Alexandre Morel</h3>
+          <div class="role" data-i18n="team.m1.role">Associé — Pénal des affaires</div>
+          <p class="small" data-i18n="team.m1.bio">15 ans d’expérience en gestion de crise et contentieux pénal complexe pour groupes cotés et PME innovantes.</p>
+        </article>
+        <article class="member reveal" aria-labelledby="m2">
+          <div class="avatar" aria-hidden="true">LP</div>
+          <h3 id="m2">Clara Delaunay</h3>
+          <div class="role" data-i18n="team.m2.role">Associée — Droit des affaires</div>
+          <p class="small" data-i18n="team.m2.bio">Spécialiste M&A/contrats stratégiques, accompagne dirigeants dans les phases de croissance et de restructuration.</p>
+        </article>
+        <article class="member reveal" aria-labelledby="m3">
+          <div class="avatar" aria-hidden="true">LP</div>
+          <h3 id="m3">Hugo Perrin</h3>
+          <div class="role" data-i18n="team.m3.role">Counsel — Droit du travail</div>
+          <p class="small" data-i18n="team.m3.bio">Pilotage d’audits sociaux, négociations collectives et contentieux sensibles à forts enjeux réputationnels.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="cases" class="container" aria-labelledby="cases-title">
+      <h2 class="section-title reveal" id="cases-title" data-i18n="cases.title">Études de cas</h2>
+      <p class="section-sub reveal" data-i18n="cases.lead">Exemples fictifs inspirés de problématiques réelles, anonymisés.</p>
+      <div class="cases">
+        <article class="case reveal" aria-labelledby="c1">
+          <small data-i18n="cases.c1.tag">Pénal des affaires</small>
+          <h3 id="c1" data-i18n="cases.c1.title">Crise fraude interne — enquête et défense</h3>
+          <p data-i18n="cases.c1.text">Mise en place d’une cellule de crise, conduite d’investigations internes, coordination avec les autorités. Résultat : limitation de l’exposition pénale et plan de conformité renforcé.</p>
+        </article>
+        <article class="case reveal" aria-labelledby="c2">
+          <small data-i18n="cases.c2.tag">Droit des affaires</small>
+          <h3 id="c2" data-i18n="cases.c2.title">Litige commercial international — issue négociée</h3>
+          <p data-i18n="cases.c2.text">Stratégie contentieuse et de négociation parallèle. Résultat : accord transactionnel robuste et maintien de la relation fournisseur stratégique.</p>
+        </article>
+        <article class="case reveal" aria-labelledby="c3">
+          <small data-i18n="cases.c3.tag">Droit du travail</small>
+          <h3 id="c3" data-i18n="cases.c3.title">Réorganisation — sécurisation sociale</h3>
+          <p data-i18n="cases.c3.text">Audit des pratiques, accompagnement des IRP, plan de communication interne. Résultat : calendrier tenu et contentieux évités.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="blog" class="container" aria-labelledby="blog-title">
+      <h2 class="section-title reveal" id="blog-title" data-i18n="blog.title">Blog</h2>
+      <p class="section-sub reveal" data-i18n="blog.lead">Analyses synthétiques pour dirigeants et juristes d’entreprise.</p>
+      <div class="posts">
+        <article class="post reveal" aria-labelledby="p1">
+          <div class="cover" aria-hidden="true"></div>
+          <div class="content">
+            <h3 id="p1" data-i18n="blog.p1.title">Garde à vue : droits et réflexes essentiels</h3>
+            <p class="small" data-i18n="blog.p1.text">Que prévoir en amont et comment réagir en situation : une checklist opérationnelle pour dirigeants.</p>
+            <a href="#" class="btn" data-i18n="blog.read">Lire l’analyse</a>
+          </div>
+        </article>
+        <article class="post reveal" aria-labelledby="p2">
+          <div class="cover" aria-hidden="true"></div>
+          <div class="content">
+            <h3 id="p2" data-i18n="blog.p2.title">Clauses clés des contrats stratégiques</h3>
+            <p class="small" data-i18n="blog.p2.text">Limiter les risques et anticiper les litiges : focus sur 7 clauses souvent sous-évaluées.</p>
+            <a href="#" class="btn" data-i18n="blog.read">Lire l’analyse</a>
+          </div>
+        </article>
+        <article class="post reveal" aria-labelledby="p3">
+          <div class="cover" aria-hidden="true"></div>
+          <div class="content">
+            <h3 id="p3" data-i18n="blog.p3.title">Réorganisations : sécuriser la dimension sociale</h3>
+            <p class="small" data-i18n="blog.p3.text">Aligner impératifs business et droit du travail : méthode, calendrier, preuves.</p>
+            <a href="#" class="btn" data-i18n="blog.read">Lire l’analyse</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="faq" class="container" aria-labelledby="faq-title">
+      <h2 class="section-title reveal" id="faq-title" data-i18n="faq.title">Questions fréquentes</h2>
+      <div class="faq">
+        <details class="reveal"><summary data-i18n="faq.q1.q">Intervenez-vous en urgence ?</summary><div class="small" data-i18n="faq.q1.a">Oui, une prise en charge d’amorçage sous 48 h est prévue dans cette démonstration.</div></details>
+        <details class="reveal"><summary data-i18n="faq.q2.q">Travaillez-vous avec des startups et des groupes ?</summary><div class="small" data-i18n="faq.q2.a">Oui, l’accompagnement s’adapte aux structures en croissance comme aux ETI/Groupes.</div></details>
+        <details class="reveal"><summary data-i18n="faq.q3.q">Proposez-vous des audits de conformité ?</summary><div class="small" data-i18n="faq.q3.a">Oui, audits ciblés (pénal éco, contrats, social) avec plan d’actions priorisé.</div></details>
+        <details class="reveal"><summary data-i18n="faq.q4.q">Avez-vous une spécialité sectorielle ?</summary><div class="small" data-i18n="faq.q4.a">Expérience transversale, focus industrie, tech, distribution, services.</div></details>
+        <details class="reveal"><summary data-i18n="faq.q5.q">Pouvez-vous gérer un litige international ?</summary><div class="small" data-i18n="faq.q5.a">Oui, avec coordination d’experts locaux et stratégie contentieuse/négociation.</div></details>
+        <details class="reveal"><summary data-i18n="faq.q6.q">Comment se déroule la première étude ?</summary><div class="small" data-i18n="faq.q6.a">Cartographie des risques, objectifs, calendrier et livrables — sur mesure.</div></details>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="cta reveal" role="region" aria-label="Action">
+        <div class="cta-text" data-i18n="cta.title">Prêts à protéger vos intérêts ?</div>
+        <button class="btn primary" data-scroll="#expertises" data-i18n="cta.btn">Découvrir nos expertises</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid" role="contentinfo">
+      <div>
+        <div class="logo" aria-label="Lexis & Partners"><span class="x3d">Lexis & Partners</span></div>
+        <p class="small" data-i18n="footer.addr">Basés à Lyon, France — démonstration sans coordonnées.</p>
+        <p class="small">© <span id="year"></span> Lexis & Partners — <span data-i18n="footer.rights">Tous droits réservés</span>.</p>
+      </div>
+      <div>
+        <strong data-i18n="footer.nav">Navigation</strong>
+        <ul>
+          <li><a href="#expertises" data-i18n="nav.expertises">Expertises</a></li>
+          <li><a href="#team" data-i18n="nav.team">Équipe</a></li>
+          <li><a href="#cases" data-i18n="nav.cases">Études de cas</a></li>
+          <li><a href="#blog" data-i18n="nav.blog">Blog</a></li>
+          <li><a href="#faq" data-i18n="nav.faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <strong data-i18n="footer.lang">Langue</strong><br/>
+        <button class="lang" id="langSwitch2" aria-label="Changer de langue (pied)">FR / EN</button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json" id="schema">
+  {
+    "@context": "https://schema.org",
+    "@type": "LegalService",
+    "name": "Lexis & Partners",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Lyon",
+      "addressCountry": "FR"
+    },
+    "areaServed": "France",
+    "url": "https://lexis-partners.example"
+  }
+  </script>
+
+  <script>
+    // Parallaxe (léger, performant)
+    const heroBg = document.querySelector('.hero .bg');
+    const setParallax = () => {
+      const y = Math.min(40, window.scrollY * 0.15);
+      heroBg && heroBg.style.setProperty('--parallax', y + 'px');
+    };
+    setParallax();
+    window.addEventListener('scroll', setParallax, {passive:true});
+
+    // Smooth scroll for buttons
+    document.querySelectorAll('[data-scroll]').forEach(btn=>{
+      btn.addEventListener('click', e=>{
+        const target = document.querySelector(btn.dataset.scroll);
+        if(target){ target.scrollIntoView({behavior:'smooth', block:'start'}); }
+      });
+    });
+
+    // Reveal on scroll (IntersectionObserver)
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target);} });
+    }, {threshold:0.14});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+    // Année courante
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // I18N
+    const I18N = {
+      fr: {
+        nav:{expertises:"Expertises", team:"Équipe", cases:"Études de cas", blog:"Blog", faq:"FAQ", cta:"Découvrir nos expertises"},
+        hero:{title:"Votre défense, notre priorité.", lead:"Cabinet d’avocats haut de gamme à Lyon, nous accompagnons dirigeants et entreprises dans leurs enjeux pénaux, d’affaires et du travail avec rigueur stratégique et résultats mesurables.", badge1:"+15 ans d’expérience", badge2:"92% dossiers gagnés", badge3:"Basés à Lyon, France", card:{title:"Intervenir vite, défendre fort, sécuriser durablement."}, metric1:{label:"Délai moyen", detail:"Prise en charge initiale"}, metric2:{label:"Taux de succès", detail:"Sur 3 dernières années"}, metric3:{label:"Satisfaction", detail:"Avis internes anonymisés"}},
+        expertises:{title:"Expertises", lead:"Trois pôles pour couvrir vos besoins stratégiques et opérationnels.", penal:{title:"Droit pénal des affaires", text:"Gestion de crise, garde à vue, contentieux pénal économique, prévention du risque et conformité. Méthode d’intervention rapide avec cellule dédiée 24/7 (démo)."}, business:{title:"Droit des affaires", text:"Fusions-acquisitions, contrats complexes, gouvernance, litiges commerciaux. Structuration juridique au service de la performance et de la résolution efficace des différends."}, work:{title:"Droit du travail", text:"Relations individuelles et collectives, audits sociaux, contentieux prud’homal, négociations sensibles. Sécurisation des pratiques et maîtrise des risques RH."}},
+        team:{title:"Équipe", lead:"Une équipe resserrée, expérimentée, dédiée à vos enjeux.", m1:{role:"Associé — Pénal des affaires", bio:"15 ans d’expérience en gestion de crise et contentieux pénal complexe pour groupes cotés et PME innovantes."}, m2:{role:"Associée — Droit des affaires", bio:"Spécialiste M&A/contrats stratégiques, accompagne dirigeants dans les phases de croissance et de restructuration."}, m3:{role:"Counsel — Droit du travail", bio:"Pilotage d’audits sociaux, négociations collectives et contentieux sensibles à forts enjeux réputationnels."}},
+        cases:{title:"Études de cas", lead:"Exemples fictifs inspirés de problématiques réelles, anonymisés.", c1:{tag:"Pénal des affaires", title:"Crise fraude interne — enquête et défense", text:"Mise en place d’une cellule de crise, conduite d’investigations internes, coordination avec les autorités. Résultat : limitation de l’exposition pénale et plan de conformité renforcé."}, c2:{tag:"Droit des affaires", title:"Litige commercial international — issue négociée", text:"Stratégie contentieuse et de négociation parallèle. Résultat : accord transactionnel robuste et maintien de la relation fournisseur stratégique."}, c3:{tag:"Droit du travail", title:"Réorganisation — sécurisation sociale", text:"Audit des pratiques, accompagnement des IRP, plan de communication interne. Résultat : calendrier tenu et contentieux évités."}},
+        blog:{title:"Blog", lead:"Analyses synthétiques pour dirigeants et juristes d’entreprise.", p1:{title:"Garde à vue : droits et réflexes essentiels", text:"Que prévoir en amont et comment réagir en situation : une checklist opérationnelle pour dirigeants."}, p2:{title:"Clauses clés des contrats stratégiques", text:"Limiter les risques et anticiper les litiges : focus sur 7 clauses souvent sous-évaluées."}, p3:{title:"Réorganisations : sécuriser la dimension sociale", text:"Aligner impératifs business et droit du travail : méthode, calendrier, preuves."}, read:"Lire l’analyse"},
+        faq:{title:"Questions fréquentes", q1:{q:"Intervenez-vous en urgence ?", a:"Oui, une prise en charge d’amorçage sous 48 h est prévue dans cette démonstration."}, q2:{q:"Travaillez-vous avec des startups et des groupes ?", a:"Oui, l’accompagnement s’adapte aux structures en croissance comme aux ETI/Groupes."}, q3:{q:"Proposez-vous des audits de conformité ?", a:"Oui, audits ciblés (pénal éco, contrats, social) avec plan d’actions priorisé."}, q4:{q:"Avez-vous une spécialité sectorielle ?", a:"Expérience transversale, focus industrie, tech, distribution, services."}, q5:{q:"Pouvez-vous gérer un litige international ?", a:"Oui, avec coordination d’experts locaux et stratégie contentieuse/négociation."}, q6:{q:"Comment se déroule la première étude ?", a:"Cartographie des risques, objectifs, calendrier et livrables — sur mesure."}},
+        cta:{title:"Prêts à protéger vos intérêts ?", btn:"Découvrir nos expertises"},
+        footer:{addr:"Basés à Lyon, France — démonstration sans coordonnées.", rights:"Tous droits réservés", nav:"Navigation", lang:"Langue"}
+      },
+      en: {
+        nav:{expertises:"Expertise", team:"Team", cases:"Case studies", blog:"Blog", faq:"FAQ", cta:"Explore our expertise"},
+        hero:{title:"Your defense, our priority.", lead:"A high-end law firm in Lyon. We support executives and companies in criminal, business and labor matters with rigorous strategy and measurable outcomes.", badge1:"15+ years experience", badge2:"92% cases won", badge3:"Based in Lyon, France", card:{title:"Act fast, defend hard, secure for the long run."}, metric1:{label:"Average response", detail:"Initial onboarding"}, metric2:{label:"Success rate", detail:"Past 3 years"}, metric3:{label:"Satisfaction", detail:"Internal anonymized reviews"}},
+        expertises:{title:"Expertise", lead:"Three pillars to cover strategic and operational needs.", penal:{title:"White-collar & corporate crime", text:"Crisis management, police custody, economic criminal litigation, risk prevention & compliance. Rapid response methodology with a dedicated 24/7 cell (demo)."}, business:{title:"Business law", text:"M&A, complex contracts, governance, commercial disputes. Legal structuring serving performance and efficient dispute resolution."}, work:{title:"Labor law", text:"Individual & collective relations, social audits, labor court litigation, sensitive negotiations. Securing practices and mitigating HR risks."}},
+        team:{title:"Team", lead:"A tight-knit, seasoned team fully dedicated to your challenges.", m1:{role:"Partner — Corporate crime", bio:"15 years experience handling crises and complex criminal litigation for listed groups and innovative SMEs."}, m2:{role:"Partner — Business law", bio:"M&A/strategic contracts specialist supporting executives through growth and restructuring phases."}, m3:{role:"Counsel — Labor law", bio:"Leads social audits, collective negotiations, and sensitive disputes with reputational stakes."}},
+        cases:{title:"Case studies", lead:"Fictional examples inspired by real-life issues, anonymized.", c1:{tag:"Corporate crime", title:"Internal fraud crisis — investigation & defense", text:"Crisis cell setup, internal investigations, coordination with authorities. Outcome: reduced criminal exposure and reinforced compliance program."}, c2:{tag:"Business law", title:"International commercial dispute — negotiated outcome", text:"Contentious strategy combined with parallel negotiation. Outcome: robust settlement and preserved strategic supplier relationship."}, c3:{tag:"Labor law", title:"Restructuring — social compliance", text:"Practice audit, employee representatives support, internal communication plan. Outcome: timeline met and disputes avoided."}},
+        blog:{title:"Blog", lead:"Concise insights for executives and in-house counsel.", p1:{title:"Police custody: rights & essential reflexes", text:"What to anticipate and how to react: an operational checklist for executives."}, p2:{title:"Key clauses in strategic contracts", text:"Limit risks and anticipate disputes: focus on 7 often underestimated clauses."}, p3:{title:"Restructuring: securing the social dimension", text:"Align business imperatives and labor law: method, timeline, evidence."}, read:"Read analysis"},
+        faq:{title:"Frequently asked questions", q1:{q:"Do you handle emergencies?", a:"Yes, an initial onboarding within 48 hours is provided in this demo."}, q2:{q:"Do you work with startups and large groups?", a:"Yes, our approach fits growth-stage companies and mid-caps/groups alike."}, q3:{q:"Do you provide compliance audits?", a:"Yes, focused audits (corporate crime, contracts, labor) with a prioritized action plan."}, q4:{q:"Any sector specialization?", a:"Cross-industry experience with focus on industry, tech, retail, services."}, q5:{q:"Can you handle an international dispute?", a:"Yes, via coordination with local experts and contentious/negotiation strategy."}, q6:{q:"How does the first assessment work?", a:"Risk mapping, objectives, timeline and deliverables — tailored."}},
+        cta:{title:"Ready to protect your interests?", btn:"Explore our expertise"},
+        footer:{addr:"Based in Lyon, France — demo without contact details.", rights:"All rights reserved", nav:"Navigation", lang:"Language"}
+      }
+    };
+
+    function applyI18n(locale){
+      document.querySelectorAll('[data-i18n]').forEach(el=>{
+        const path = el.getAttribute('data-i18n').split('.');
+        let val = I18N[locale];
+        for(const p of path){ val = val?.[p]; }
+        if(typeof val === 'string'){ el.textContent = val; }
+      });
+      document.documentElement.lang = locale === 'fr' ? 'fr' : 'en';
+      localStorage.setItem('LEXIS_LANG', locale);
+    }
+
+    const saved = localStorage.getItem('LEXIS_LANG') || (navigator.language?.startsWith('fr') ? 'fr' : 'en');
+    applyI18n(saved);
+
+    function toggleLang(){ applyI18n((localStorage.getItem('LEXIS_LANG') === 'fr') ? 'en' : 'fr'); }
+    document.getElementById('langSwitch').addEventListener('click', toggleLang);
+    document.getElementById('langSwitch2').addEventListener('click', toggleLang);
+  </script>
+</body>
+</html>
